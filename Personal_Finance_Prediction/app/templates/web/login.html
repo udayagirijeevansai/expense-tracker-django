@@ -1,0 +1,257 @@
+{% csrf_token %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Personal Finance Predictor</title>
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+body {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(201, 214, 255, 1) 100%);
+  height: 100vh;
+}
+
+form {
+  width: 850px;
+  height: 550px;
+  background-color: #fff;
+  border-radius: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div.left {
+  background-color: #306ee8;
+  width: 50%;
+  height: inherit;
+  border-radius: 30px 30% 30% 30px;
+  position: relative;
+}
+
+div.left div {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 40px;
+  width: max-content;
+}
+
+div.left div p {
+  color: #fff;
+  font-size: 36px;
+  margin: 0;
+  font-weight: bolder;
+}
+
+div.left div a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14.5px;
+}
+
+.register {
+  border: 2px solid #fff;
+  width: 160px;
+  height: 46px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 68px;
+}
+
+div.right {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  padding: 40px;
+  overflow: hidden;
+}
+
+div.right div {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+}
+
+div.right h1 {
+  font-size: 36px;
+  text-align: center;
+  font-weight: bold;
+  opacity: 70%;
+}
+
+div.right input {
+  padding: 13px 50px 13px 20px;
+  margin: 10px 0;
+  background-color: #efefef;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+div.right input:focus {
+  outline-color: transparent;
+}
+
+div.right div span {
+  position: absolute;
+  left: 85%;
+  display: block;
+}
+
+div.right .person {
+  top: 23%;
+}
+
+div.right .lock {
+  top: 44%;
+}
+
+div.right div a {
+  color: #000;
+  display: block;
+  margin-bottom: 20px;
+}
+
+div.right div button {
+  background-color: #306ee8;
+  width: 100%;
+  height: 48px;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+div.right div p {
+  margin: 15px 0;
+}
+
+div.right div div {
+  margin-top: 20px;
+  top: 100%;
+  width: 100%;
+}
+
+div.right div div a {
+  display: inline-block;
+  margin: 0 8px;
+  border: 2px solid #ccc;
+  padding: 6px 5px 0 5px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 24px;
+  width: 17%;
+  height: 50px;
+}
+</style>
+<body>
+    <form action="" method="post" id="Login">
+        <div class="left">
+          <div>
+            <p>Hello, Welcome!</p>
+            <a href="">Don't have an account? </a>
+            <a href="/register/" class="register">Register</a> 
+          </div>
+        </div>
+        <div class="right">
+          <div>
+            <h1>Login</h1>
+            <input type="text" name="Username" id="txtEmail" placeholder="Email" />
+            <input type="password" name="Password" id="txtPassword" placeholder="Password" />
+            <!-- <a href="">Forgot Password?</a> -->
+            <button type="button" id="btn_submit">Login</button>
+          </div>
+        </div>
+    </form>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $("#btn_submit").click(function (e) {
+
+      if ($("#txtEmail").val().trim().length < 1) {
+          alert("Please Enter Email");
+          $("#txtEmail").focus();
+          return false;
+      }
+
+      if ($("#txtPassword").val().trim().length < 1) {
+          alert("Please Enter Password");
+          $("#txtPassword").focus();
+          return false;
+      }
+
+  let formData = new FormData();
+
+  formData.append("txtEmail", $("#txtEmail").val());
+  formData.append("txtPassword", $("#txtPassword").val());
+  formData.append(
+    "csrfmiddlewaretoken",
+    $("input[name=csrfmiddlewaretoken]").val()
+  );
+
+      $.ajax({
+        beforeSend: function () {
+          $("#signin").attr("disabled", true);
+        },
+        url: "/web_login/",
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (result) {
+          if(result == "0") {
+            alert("Invalid Email OR Password, Try again!!!");
+          } else {
+            window.location = "/";
+          }
+          
+        },
+        error: function (request, error) {
+          console.error(error);
+        },
+        complete: function () {
+          $("#btn_submit").attr("disabled", false);
+        },
+      });
+    });
+
+  });
+</script>

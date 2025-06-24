@@ -1,0 +1,549 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Untree.co">
+	<link rel="shortcut icon" href="favicon.png">
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap5" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="/static/web/fonts/icomoon/style.css">
+	<link rel="stylesheet" href="/static/web/fonts/flaticon/font/flaticon.css">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+	<link rel="stylesheet" href="/static/web/css/tiny-slider.css">
+	<link rel="stylesheet" href="/static/web/css/aos.css">
+	<link rel="stylesheet" href="/static/web/css/glightbox.min.css">
+	<link rel="stylesheet" href="/static/web/css/style.css">
+
+	<link rel="stylesheet" href="/static/web/css/flatpickr.min.css">
+
+
+	<title>expense tracker </title>
+</head>
+<body>
+
+	<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+
+	<nav class="site-nav">
+		<div class="container">
+			<div class="menu-bg-wrap">
+				<div class="site-navigation">
+					<div class="row g-0 align-items-center">
+						<div class="col-5">
+							<a href="/" class="logo m-0 float-start">Expense tracker <span class="text-primary">.</span></a>
+						</div>
+						<div class="col-7 text-end">
+							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+								<li class="active"><a href="/">Home</a></li>
+								<li><a href="/about">About</a></li>
+								<li><a href="/contact/">Contact Us</a></li>
+								
+								{% if web_email %}
+									<li><a href="/profile/">Profile</a></li>
+									<li><a href="/web_logout/">Logout</a></li>
+								{% else %}
+									<li><a href="/login/">Login</a></li>
+								{% endif %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="hero overlay">
+		<img src="/static/web/images/blob.svg" alt="" class="img-fluid blob">
+		<div class="container">
+			<div class="row align-items-center justify-content-between pt-5">
+				<div class="col-lg-6 text-center text-lg-start pe-lg-5">
+					<h1 class="heading text-white mb-3" data-aos="fade-up">Expense tracker</h1>
+					<p class="text-white mb-5" data-aos="fade-up" data-aos-delay="100">Access personalized financial insights with verified data across multiple spending categories. Promote better budgeting and transparency with real-time expense tracking. Ensure safe and seamless money management with milestone-based financial goals.</p>
+				</div>
+				<div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+					<div class="img-wrap">
+						<img src="/static/web/images/img-1.jpg" alt="Image" class="img-fluid rounded">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="section">
+		<div class="container">
+			<div class="row justify-content-between">
+				<div class="col-lg-7 mb-4 mb-lg-0">
+					<img src="/static/web/images/img-3.jpg" alt="Image" class="img-fluid rounded
+					">
+				</div>
+				<div class="col-lg-5 ps-lg-2">
+					<div class="" data-aos="fade-up">
+						<h2 class="heading text-primary">About Us</h2>
+							<p>Welcome to the ultimate platform where smart decisions meet financial clarity. We are a dynamic personal finance prediction tool designed to help individuals and families take control of their financial future — from budgeting and expense tracking to savings planning and financial goal-setting.</p>
+							 <p>At Personal Finance Predictor, we believe in empowering people through intelligent, data-driven insights. Our mission is to simplify money management by allowing users to input their income and expenses and receive accurate, real-time predictions to guide smarter financial choices. This ensures not only better control over your spending but also helps you plan for a secure future.</p>
+							 <p>Whether you're looking to reduce debt, save for a big goal, or simply understand your financial habits better, our platform offers a secure, user-friendly environment to track, predict, and grow. Join us today and take the first step toward financial freedom — where your goals meet intelligent planning.</p>
+					</div>
+					
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="section sec-features">
+		<div class="container">
+			<div class="row g-5">
+				<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+					<div class="feature d-flex">
+						<span class="bi-bag-check-fill"></span>
+						<div>
+							<h3>Build financial</h3>
+							<p>Build financial details: Users place bids on tasks with proposed costs; platform deducts a commission from payments upon task completion. </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+					<div class="feature d-flex">
+						<span class="bi-wallet-fill"></span>
+						<div>
+							<h3>Invest for the future</h3>
+							<p>Invest for the future by connecting skilled freelancers with clients through a secure, competitive bidding platform that drives innovation and growth. </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+					<div class="feature d-flex">
+						<span class="bi-pie-chart-fill"></span>
+						<div>
+							<h3>Responsible banking</h3>
+							<p>Responsible banking ensures ethical, transparent, and sustainable financial practices that prioritize customer welfare and social impact.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7 order-lg-2 mb-4 mb-lg-0">
+					<img src="/static/web/images/img-1.jpg" alt="Image" class="img-fluid">
+				</div>
+				<div class="col-lg-5 pe-lg-5">
+					<div class="mb-5">
+						<h2 class="text-black h4">Straight-forward way of financing</h2>
+					</div>
+					<div class="d-flex mb-3 service-alt">
+						<div>
+							<span class="bi-wallet-fill me-4"></span>
+						</div>
+						<div>
+							<h3>Build financial</h3>
+							<p>Build financial details: Users place bids on tasks with proposed costs; platform deducts a commission from payments upon task completion.</p>
+						</div>
+					</div>
+
+					<div class="d-flex mb-3 service-alt">
+						<div>
+							<span class="bi-pie-chart-fill me-4"></span>
+						</div>
+						<div>
+							<h3>Invest for the future</h3>
+							<p>Invest for the future by connecting skilled freelancers with clients through a secure, competitive bidding platform that drives innovation and growth./p>
+						</div>
+					</div>
+
+					<div class="d-flex mb-3 service-alt">
+						<div>
+							<span class="bi-bag-check-fill me-4"></span>
+						</div>
+						<div>
+							<h3>Responsible banking</h3>
+							<p>Responsible banking ensures ethical, transparent, and sustainable financial practices that prioritize customer welfare and social impact.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="section sec-services">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-lg-5 mx-auto text-center" data-aos="fade-up">
+				<h2 class="heading text-primary">Our Services</h2>
+				
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up">
+
+				<div class="service text-center">
+					<span class="bi-cash-coin"></span>
+					<div>
+						<h3>Faster payments</h3>
+						<p class="mb-4">Faster payments are enabled through integrated payment gateways ensuring instant or same-day transfers to freelancers upon task completion.</p>
+						
+					</div>
+				</div>
+
+			</div>
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+				<div class="service text-center">
+					<span class="bi-chat-text"></span>
+					<div>
+						<h3>Grow your business</h3>
+						<p class="mb-4">Grow your business by connecting with skilled freelancers who bid competitively on your projects.</p>
+					
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+				<div class="service text-center">
+					<span class="bi-fingerprint"></span>
+					<div>
+						<h3>Investments</h3>
+						<p class="mb-4">The Personal Finance Predictor platform requires an estimated investment for its development, deployment, and initial user acquisition.</p>
+						
+					</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+				<div class="service text-center">
+					<span class="bi-gear"></span>
+					<div>
+						<h3>Payment & Cards</h3>
+						<p class="mb-4">A personal finance predictor platform integrated with digital currency enables users to manage, track, and forecast their finances, including cryptocurrency holdings such as Bitcoin or Ethereum.</p>
+						
+					</div>
+				</div>
+
+			</div>
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+				<div class="service text-center">
+					<span class="bi-graph-up-arrow"></span>
+					<div>
+						<h3>Strategic Finance</h3>
+						<p class="mb-4">Strategic Finance ensures optimal fund allocation, cost management, and revenue forecasting to sustain platform growth and scalability.</p>
+					
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-sm-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+				<div class="service text-center">
+					<span class="bi-layers"></span>
+					<div>
+						<h3>Digital Currency</h3>
+						<p class="mb-4">A freelancer task bidding platform using digital currency allows users to post and bid on tasks, with payments made securely through cryptocurrencies like Bitcoin or Ethereum.</p>
+						
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="section sec-cta overlay" style="background-image: url('/static/web/images/img-3.jpg')">
+	<div class="container">
+		<div class="row justify-content-between align-items-center">
+			<div class="col-lg-5" data-aos="fade-up" data-aos-delay="0">
+				<h2 class="heading">Wanna Talk To Us?</h2>
+				<p>Reach out anytime via chat or email for quick support and collaboration! </p>
+			</div>
+			<div class="col-lg-5 text-end" data-aos="fade-up" data-aos-delay="100">
+				<a href="/contact/" class="btn btn-outline-white-reverse">Contact us</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="section sec-portfolio bg-light pb-5	">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-lg-5 mx-auto text-center ">
+				<h2 class="heading text-primary mb-3" data-aos="fade-up" data-aos-delay="0">Case Studies</h2>
+				<div id="post-slider-nav" data-aos="fade-up" data-aos-delay="200">
+					<button class="btn btn-primary py-2" class="prev" data-controls="prev">Prev</button>
+					<button class="btn btn-primary py-2" class="next" data-controls="next">Next</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="post-slider-wrap" data-aos="fade-up" data-aos-delay="300">
+
+		<div id="post-slider" class="post-slider">
+			<div class="item">
+				<a href="#" class="card d-block">
+					<img src="/static/web/images/img-1.jpg" class="card-img-top" alt="Image">
+					<div class="card-body">
+						<h5 class="card-title">TaskRabbit</h5>
+						<p>Enabled local service providers to bid on nearby tasks, streamlining gig work for users.</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="item">
+				<a href="#" class="card">
+					<img src="/static/web/images/img-2.jpg" class="card-img-top" alt="Image">
+					<div class="card-body">
+						<h5 class="card-title">Upwork </h5>
+						<p>Connected global freelancers with clients through a competitive bidding and proposal system.</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="item">
+				<a href="#" class="card">
+					<img src="/static/web/images/img-3.jpg" class="card-img-top" alt="Image">
+					<div class="card-body">
+						<h5 class="card-title">Fiverr </h5>
+						<p> Simplified freelancing by offering predefined service packages instead of traditional bidding. </p>
+					</div>
+				</a>
+			</div>
+
+			<div class="item">
+				<a href="#" class="card">
+					<img src="/static/web/images/img-4.jpg" class="card-img-top" alt="Image">
+					<div class="card-body">
+						<h5 class="card-title">Workana </h5>
+						<p>Popular in Latin America, allowing remote freelancers to compete in task bidding across various industries.</p>
+					</div>
+				</a>
+			</div>
+
+			<div class="item">
+				<a href="#" class="card">
+					<img src="/static/web/images/img-1.jpg" class="card-img-top" alt="Image">
+					<div class="card-body">
+						<h5 class="card-title">Kolabtree </h5>
+						<p>Enabled scientists and researchers to bid on academic and research-related freelance tasks. </p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+
+<div class="section sec-testimonial bg-light">
+	<div class="container">
+		<div class="row mb-5 justify-content-center">
+			<div class="col-lg-6 text-center">
+				<h2 class="heading text-primary">Testimonials</h2>
+			</div>
+
+		</div>
+
+
+		<div class="testimonial-slider-wrap">
+			<div class="testimonial-slider" id="testimonial-slider">
+				<div class="item">
+					<div class="testimonial-half d-lg-flex bg-white">
+						<div class="img" style="background-image: url('/static/web/images/img-4.jpg')">
+
+						</div>
+						<div class="text">
+							<blockquote>
+								<p>"This app completely changed how I manage my money. The predictions are surprisingly accurate, and I love how it helps me plan for upcoming expenses. I’ve been able to save more in the last three months than I did all year!"</p>
+							</blockquote>
+							<div class="author">
+								<strong class="d-block text-black">Sanjana K</strong>
+								<span>CEO</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="testimonial-half d-lg-flex bg-white">
+						<div class="img" style="background-image: url('/static/web/images/img-3.jpg')">
+
+						</div>
+						<div class="text">
+							<blockquote>
+								<p>"Running a business means my personal and business expenses often overlap. The Personal Finance Predictor helps me separate them clearly and gives me a better view of my future cash flow. It's like having a financial advisor in my pocket"</p>
+							</blockquote>
+							<div class="author">
+								<strong class="d-block text-black">Vaishnavi R</strong>
+								<span>Co-founder</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="testimonial-half d-lg-flex bg-white">
+						<div class="img" style="background-image: url('/static/web/images/img-2.jpg')">
+
+						</div>
+						<div class="text">
+							<blockquote>
+								<p>"As a student, budgeting is tough. This app made it so easy to track where my money goes and how much I can save each month. The predictions help me avoid surprises. Super useful!"</p>
+							</blockquote>
+							<div class="author">
+								<strong class="d-block text-black">Rohan P</strong>
+								<span>Co-founder</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="section sec-news">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-lg-7">
+				<h2 class="heading text-primary">Latest News</h2>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="card post-entry">
+					<a href="#"><img src="/static/web/images/img-1.jpg" class="card-img-top" alt="Image"></a>
+					<div class="card-body">
+						<p>Personal Finance Predictor has introduced an innovative AI-driven budgeting tool that offers users personalized spending forecasts and savings recommendations. This feature aims to enhance financial planning by providing real-time insights into spending habits and future financial projections. Users can now make more informed decisions, leading to improved financial health.</p>
+			
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4">
+				<div class="card post-entry">
+					<a href="#"><img src="/static/web/images/img-2.jpg" class="card-img-top" alt="Image"></a>
+					<div class="card-body">
+						<p>In a strategic move, Personal Finance Predictor has partnered with several leading financial institutions to provide users with seamless integration of their bank accounts. This collaboration ensures secure and real-time access to financial data, enabling more accurate predictions and personalized financial advice. The partnership underscores the platform's commitment to offering comprehensive financial management solutions.</p>
+					
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4">
+				<div class="card post-entry">
+					<a href="#"><img src="/static/web/images/img-3.jpg" class="card-img-top" alt="Image"></a>
+					<div class="card-body">
+						<p>In a strategic move, Personal Finance Predictor has partnered with several leading financial institutions to provide users seamless integration of their bank accounts. This collaboration ensures secure, real-time access to financial data, enabling more accurate predictions and personalized advice. The partnership underscores the platform's commitment to offering comprehensive financial solutions.</p>
+						
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+	<div class="site-footer">
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="widget">
+					<h3>About</h3>
+					<p>A platform where users can track their finances and receive intelligent predictions, helping them manage income, expenses, and savings more effectively.</p>
+				</div> <!-- /.widget -->
+				<div class="widget">
+					<address>Jain college<br>Belagavi</address>
+					<ul class="list-unstyled links">
+						
+						<li><a href="#">+91 9988776655</a></li>
+						<li><a href="#">personalfinancepredictor@gmail.com</a></li>
+					</ul>
+				</div> <!-- /.widget -->
+			</div> <!-- /.col-lg-4 -->
+			<div class="col-lg-4">
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul class="list-unstyled float-start links">
+						<li><a href="/index/">Home</a></li>
+						<li><a href="/about/">About us</a></li>
+						<li><a href="/contact/">Contact us</a></li>
+
+					
+					</ul>
+				</div> <!-- /.widget -->
+			</div> <!-- /.col-lg-4 -->
+			<div class="col-lg-4">
+				<div class="widget">
+					
+					<h3>Social</h3>
+					<ul class="list-unstyled social">
+						<li><a href="#"><span class="icon-instagram"></span></a></li>
+						<li><a href="#"><span class="icon-twitter"></span></a></li>
+						<li><a href="#"><span class="icon-facebook"></span></a></li>
+						<li><a href="#"><span class="icon-linkedin"></span></a></li>
+						<li><a href="#"><span class="icon-pinterest"></span></a></li>
+						<li><a href="#"><span class="icon-dribbble"></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="row mt-5">
+			<div class="col-12 text-center">
+				
+
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+            </p>
+          </div>
+        </div>
+      </div> <!-- /.container -->
+    </div> 
+
+    <!-- Preloader -->
+    <div id="overlayer"></div>
+    <div class="loader">
+    	<div class="spinner-border text-primary" role="status">
+    		<span class="visually-hidden">Loading...</span>
+    	</div>
+    </div>
+
+
+    <script src="/static/web/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/web/js/tiny-slider.js"></script>
+
+    <script src="/static/web/js/flatpickr.min.js"></script>
+
+
+    <script src="/static/web/js/aos.js"></script>
+    <script src="/static/web/js/glightbox.min.js"></script>
+    <script src="/static/web/js/navbar.js"></script>
+    <script src="/static/web/js/counter.js"></script>
+    <script src="/static/web/js/custom.js"></script>
+  </body>
+  </html>

@@ -1,0 +1,249 @@
+
+{% csrf_token %}
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Untree.co">
+	<link rel="shortcut icon" href="/static/web/favicon.png">
+
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap5" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="/static/web/fonts/icomoon/style.css">
+	<link rel="stylesheet" href="/static/web/fonts/flaticon/font/flaticon.css">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+	<link rel="stylesheet" href="/static/web/css/tiny-slider.css">
+	<link rel="stylesheet" href="/static/web/css/aos.css">
+	<link rel="stylesheet" href="/static/web/css/glightbox.min.css">
+	<link rel="stylesheet" href="/static/web/css/style.css">
+
+	<link rel="stylesheet" href="/static/web/css/flatpickr.min.css">
+
+
+	<title>Personal Finance Predictor </title>
+</head>
+<body>
+
+	
+
+	<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+
+	<nav class="site-nav">
+		<div class="container">
+			<div class="menu-bg-wrap">
+				<div class="site-navigation">
+					<div class="row g-0 align-items-center">
+						<div class="col-5">
+							<a href="/" class="logo m-0 float-start">Personal Finance Predictor <span class="text-primary">.</span></a>
+						</div>
+						<div class="col-7 text-end">
+							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+								<li class="active"><a href="/">Home</a></li>
+								<li><a href="/about">About</a></li>
+								<li><a href="/contact/">Contact Us</a></li>
+								
+								<li><a href="/profile/">Profile</a></li>
+								<li><a href="/web_logout/">Logout</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="hero overlay inner-page">
+		<img src="/static/web/images/blob.svg" alt="" class="img-fluid blob">
+		<div class="container">
+			<div class="row align-items-center justify-content-center text-center pt-5">
+				<div class="col-lg-6">
+					<h1 class="heading text-white mb-3" data-aos="fade-up">Report</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="section">
+                        <div class="container mt-4">
+							<div class="row justify-content-center mb-4">
+							  <div class="col-sm-4">
+								<canvas id="expenseBarChart" width="100" height="100"></canvas>
+							  </div>
+							  <div class="col-sm-4">
+								<canvas id="expensePieChart" width="100" height="100"></canvas>
+							  </div>
+							  <div class="col-sm-4">
+								<canvas id="expenseLineChart" width="100" height="100"></canvas>
+							  </div>
+							</div>
+						  </div>
+						  
+                      </div>
+                      <div class="text-center mb-4">
+                     <button class="btn btn-primary" onclick="downloadPDF()">Download PDF Report</button>
+                    </div>
+				  </div>
+				  <table class="table table-bordered mt-3">
+  <thead><tr><th>Category</th><th>Amount</th><th>Percentage</th></tr></thead>
+  <tbody>
+    <tr><td>Food</td><td>₹3000</td><td>30%</td></tr>
+    ...
+  </tbody>
+</table>
+				  <div class="bg-light p-4 rounded shadow mt-4">
+  <h5>💰 Smart Saving Suggestion</h5>
+  <p>You're spending particularmonth on subscriptions. Consider cancelling unused ones to save particular amt this month!</p>
+</div>
+				  <div class="alert alert-info text-center mt-4" id="ai-tip">
+  💡 Tip: Try to reduce your expenses this month!
+</div>
+			</div>
+
+			<div class="text-center mt-4">
+		<button class="btn btn-warning" onclick="speakTip()">🔊 Hear AI Tip</button>
+	</div>
+		</div>
+	</div>
+  
+	
+	<div class="site-footer">
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="widget">
+					<h3>About</h3>
+					<p>A platform where users can track their finances and receive intelligent predictions, helping them manage income, expenses, and savings more effectively.</p>
+				</div>
+				<div class="widget">
+					<address>Jain college <br>Belagavi</address>
+					<ul class="list-unstyled links">
+						
+						<li><a href="#">+91 9988776655</a></li>
+						<li><a href="#">personalfinancepredictor@gmail.com</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="widget">
+					<h3>Quick Links</h3>
+					<ul class="list-unstyled float-start links">
+						<li><a href="/index/">Home</a></li>
+						<li><a href="/about/">About us</a></li>
+						<li><a href="/contact/">Contact us</a></li>
+
+					
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="widget">
+					
+					<h3>Social</h3>
+					<ul class="list-unstyled social">
+						<li><a href="#"><span class="icon-instagram"></span></a></li>
+						<li><a href="#"><span class="icon-twitter"></span></a></li>
+						<li><a href="#"><span class="icon-facebook"></span></a></li>
+						<li><a href="#"><span class="icon-linkedin"></span></a></li>
+						<li><a href="#"><span class="icon-pinterest"></span></a></li>
+						<li><a href="#"><span class="icon-dribbble"></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="row mt-5">
+			<div class="col-12 text-center">
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <!-- Preloader -->
+    <div id="overlayer"></div>
+    <div class="loader">
+    	<div class="spinner-border text-primary" role="status">
+    		<span class="visually-hidden">Loading...</span>
+    	</div>
+    </div>
+
+
+    <script src="/static/web/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/web/js/tiny-slider.js"></script>
+
+    <script src="/static/web/js/flatpickr.min.js"></script>
+      
+	<script>
+  async function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+	function speakTip() {
+	const message = new SpeechSynthesisUtterance(document.getElementById("ai-tip").textContent);
+	window.speechSynthesis.speak(message);
+}
+
+    // Add header
+    doc.setFontSize(18);
+    doc.text("Expense Tracker Report", 105, 20, null, null, "center");
+
+    const chartIds = ["expenseBarChart", "expensePieChart", "expenseLineChart"];
+    let yPosition = 40;
+
+    for (let i = 0; i < chartIds.length; i++) {
+      const canvas = document.getElementById(chartIds[i]);
+      const canvasImg = canvas.toDataURL("image/png", 1.0);
+
+      // Draw chart on PDF
+      doc.addImage(canvasImg, 'PNG', 30, yPosition, 150, 80);
+      yPosition += 90;
+
+      if (i < chartIds.length - 1 && yPosition + 80 > 280) {
+        doc.addPage();
+        yPosition = 20;
+      }
+    }
+
+    doc.save("Expense_Tracker_Report.pdf");
+  }
+</script>
+
+
+    <script src="/static/web/js/aos.js"></script>
+    <script src="/static/web/js/glightbox.min.js"></script>
+    <script src="/static/web/js/navbar.js"></script>
+    <script src="/static/web/js/counter.js"></script>
+    <script src="/static/web/js/custom.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="/static/web/js/jsReport.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  </body>
+  </html>
+  
+
+  
