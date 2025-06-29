@@ -1,1 +1,2 @@
-web: gunicorn project.wsgi
+
+web: gunicorn Personal_Finance_Prediction.wsgi:application
